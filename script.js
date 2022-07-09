@@ -17,16 +17,16 @@ const plus = document.querySelector('.plus');
 const minus = document.querySelector('.minus');
 const equal = document.querySelector('.equal');
 
+// these variables will initialize as null. Their status will determine which 'phase' we are in
 let storage = null;
 let l_number = null;
 let operand = null;
 let r_number = null;
 
-
 function display()
 // Just need to add dom here //
 {
-    if(operand != '' && !r_number)
+    if(operand != '' && !l_number)
     {
         return toString(l_number) + ' ' + operand 
     }
@@ -42,76 +42,65 @@ function display()
 
 function calculator()
 {
-// phase 1: user enters l_number, all constants null at this point, disallow operands
-if (!l_number && !operand)
+// phase 1: no operands or terminating numbers set up yet. Just initial 'left-side' numbers 
+if (!operand && !r_number)
     {
-        one.addEventListener('click',() => 
-        {
-            l_number += 1
-            display()
-        })
-        two.addEventListener('click',() => 
-        {
-            l_number += 2
-        })
-        three.addEventListener('click',() => 
-        {
-            l_number += 3
-        })
-        four.addEventListener('click',() => 
-        {
-            l_number += 4
-        })
-        five.addEventListener('click',() => 
-        {
-            l_number += 5
-        })
-        six.addEventListener('click',() => 
-        {
-            l_number = 6
-        })
-        seven.addEventListener('click',() => 
-        {
-            l_number = 7
-        })
-        eight.addEventListener('click',() => 
-        {
-            l_number = 8
-        })
-        nine.addEventListener('click',() => 
-        {
-            l_number = 9
-        })
-        zero.addEventListener('click',() => 
-        {
-            l_number = 0
-        })
-    }
-// phase 2: user enters an operand, disallow all other keys
-if (l_number && !operand)
-    {
-        plus.addEventListener('click',() => 
-        {
-            operand = '+'
-            display()
-        })
-        minus.addEventListener('click',() => 
-        {
-            operand = '-'
-            display()
-        })
-        multiply.addEventListener('click',() => 
-        {
-            operand = '*'
-            display()
-        })
-        divide.addEventListener('click',() => 
-        {
-            operand = '/'
-            display()
-        })
+        l_number += storage
+        display()
     }
 }
+// call calculator function through series of clicks//
+one.addEventListener('click',() => 
+{
+    storage = 1;
+    calculator()
+})
+two.addEventListener('click',() => 
+{
+    storage = 2
+    calculator();
+})
+three.addEventListener('click',() => 
+{
+    storage = 3
+    calculator();
+})
+four.addEventListener('click',() => 
+{
+    storage = 4
+    calculator();
+})
+five.addEventListener('click',() => 
+{
+    storage = 5
+    calculator();
+})
+six.addEventListener('click',() => 
+{
+    storage = 6
+    calculator();
+})
+seven.addEventListener('click',() => 
+{
+    storage = 7
+    calculator();
+})
+eight.addEventListener('click',() => 
+{
+    storage = 8
+    calculator();
+})
+nine.addEventListener('click',() => 
+{
+    storage = 9
+    calculator();
+})
+zero.addEventListener('click',() => 
+{
+    storage = 0
+    calculator();
+})
+
 //step 1 -- Show something on the screen. Should default to 0
 //step 2a -- If the user types in an operand, it should prepare to operand to 0
 //step 2b -- if the user types in a number
