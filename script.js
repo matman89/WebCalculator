@@ -17,19 +17,101 @@ const plus = document.querySelector('.plus');
 const minus = document.querySelector('.minus');
 const equal = document.querySelector('.equal');
 
-let display = 0;
-let l_number = 0;
-let operand = '';
-let r_number = 0;
+let storage = null;
+let l_number = null;
+let operand = null;
+let r_number = null;
 
-/*add a dom to row 1*/
-/* ... */
 
-one.addEventListener('click',() => 
+function display()
+// Just need to add dom here //
 {
-    return '1'
-})
+    if(operand != '' && !r_number)
+    {
+        return toString(l_number) + ' ' + operand 
+    }
+    if(operand != '' && r_number)
+    {
+        return toString(l_number) + ' ' + operand + ' ' + toString(r_number)
+    }
+    else
+    {
+        return l_number
+    }
+}
 
+function calculator()
+{
+// phase 1: user enters l_number, all constants null at this point, disallow operands
+if (!l_number && !operand)
+    {
+        one.addEventListener('click',() => 
+        {
+            l_number += 1
+            display()
+        })
+        two.addEventListener('click',() => 
+        {
+            l_number += 2
+        })
+        three.addEventListener('click',() => 
+        {
+            l_number += 3
+        })
+        four.addEventListener('click',() => 
+        {
+            l_number += 4
+        })
+        five.addEventListener('click',() => 
+        {
+            l_number += 5
+        })
+        six.addEventListener('click',() => 
+        {
+            l_number = 6
+        })
+        seven.addEventListener('click',() => 
+        {
+            l_number = 7
+        })
+        eight.addEventListener('click',() => 
+        {
+            l_number = 8
+        })
+        nine.addEventListener('click',() => 
+        {
+            l_number = 9
+        })
+        zero.addEventListener('click',() => 
+        {
+            l_number = 0
+        })
+    }
+// phase 2: user enters an operand, disallow all other keys
+if (l_number && !operand)
+    {
+        plus.addEventListener('click',() => 
+        {
+            operand = '+'
+            display()
+        })
+        minus.addEventListener('click',() => 
+        {
+            operand = '-'
+            display()
+        })
+        multiply.addEventListener('click',() => 
+        {
+            operand = '*'
+            display()
+        })
+        divide.addEventListener('click',() => 
+        {
+            operand = '/'
+            display()
+        })
+    }
+}
 //step 1 -- Show something on the screen. Should default to 0
 //step 2a -- If the user types in an operand, it should prepare to operand to 0
 //step 2b -- if the user types in a number
@@ -44,5 +126,4 @@ one.addEventListener('click',() =>
     // step 2b.9 -- evaluate the expression and update display to that number
     // step 2b.10 -- allow calculations to continue
 //step 3 clear button reverts back to 0
-
 
