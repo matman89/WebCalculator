@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-*
-{
-    border: 1px solid firebrick;
-}
 
 /* It looks like this is what centers the whole webpage? */
 /* Per stack overflow: Makes the div as big as the parent?*/
@@ -104,6 +100,7 @@ body {
     justify-content: center;
 }
 
+
 .one,
 .two,
 .three,
@@ -112,37 +109,68 @@ body {
 .six,
 .seven,
 .eight,
-.nine,
-.divide,
-.multiply,
-.plus
+.nine
 {
+   display: flex;
    justify-content: center;
-   align-content: center;
+   align-items: center;
    height: 50px;
    width: 75px;
    background-color: orange;
    font-size: 25px;
+   border: 1px solid darkslateblue;
 }
 
 
-.zero,
-.clear
+.zero
 {
-    width: 225px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
     height: 50px;
     background-color: orange;
     font-size: 25px;
+    border: 1px solid darkslateblue;
+}
+
+
+.clear
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    height: 50px;
+    background-color: orange;
+    font-size: 25px;
+    border: 1px solid darkslateblue;
 }
 
 
 .minus,
-.equal
+.equals
 {
+    display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     height: 50px;
     width: 75px;
-    background-color: orange;
+    background-color: limegreen;
     font-size: 25px;
+    border: 1px solid darkslateblue;
+}
+
+.divide,
+.multiply,
+.plus
+{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 50px;
+   width: 75px;
+   background-color: limegreen;
+   font-size: 25px;
+   border: 1px solid darkslateblue;
 }
