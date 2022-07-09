@@ -1,4 +1,4 @@
-/*add event listeners*/
+/*Query Selectors to enable event listeners later in script*/
 
 const one = document.querySelector('.one');
 const two = document.querySelector('.two');
@@ -24,16 +24,28 @@ let operand = '';
 let r_number = '';
 
 function display()
-// Just need to add dom here //
 {
     if (operand == '' && r_number == '')
     {
         l_number += storage;
+        storage = ''
         document.querySelector('.display').textContent = `${l_number}`;
     }
+    if (operand != '' && l_number != '')
+    {
+        /* If you haven't finished the operand selection this next line checks*/
+        if(storage == '')
+        {
+            document.querySelector('.display').textContent = `${l_number+operand}`;
+        }
+        r_number += storage;
+        document.querySelector('.display').textContent = `${l_number+operand+r_number}`;
+        storage = ''
+    }
+
 }
 
-// call calculator function through series of clicks//
+// call display function through series of clicks//
 one.addEventListener('click',() => 
 {
     storage = '1';
@@ -82,6 +94,26 @@ nine.addEventListener('click',() =>
 zero.addEventListener('click',() => 
 {
     storage = '0';
+    display();
+})
+plus.addEventListener('click',() => 
+{
+    operand = '+';
+    display();
+})
+minus.addEventListener('click',() => 
+{
+    operand = '-';
+    display();
+})
+multiply.addEventListener('click',() => 
+{
+    operand = '*';
+    display();
+})
+divide.addEventListener('click',() => 
+{
+    operand = '/';
     display();
 })
 
