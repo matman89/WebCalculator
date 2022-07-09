@@ -6,7 +6,7 @@ const three = document.querySelector('.three');
 const four = document.querySelector('.four');
 const five = document.querySelector('.five');
 const six = document.querySelector('.six');
-const seven= document.querySelector('.seven');
+const seven = document.querySelector('.seven');
 const eight = document.querySelector('.eight');
 const nine = document.querySelector('.nine');
 const zero = document.querySelector('.zero');
@@ -18,87 +18,71 @@ const minus = document.querySelector('.minus');
 const equal = document.querySelector('.equal');
 
 // these variables will initialize as null. Their status will determine which 'phase' we are in
-let storage = null;
-let l_number = null;
-let operand = null;
-let r_number = null;
+let storage = '';
+let l_number = '';
+let operand = '';
+let r_number = '';
 
 function display()
 // Just need to add dom here //
 {
-    if(operand != '' && !l_number)
+    if (operand == '' && r_number == '')
     {
-        return toString(l_number) + ' ' + operand 
-    }
-    if(operand != '' && r_number)
-    {
-        return toString(l_number) + ' ' + operand + ' ' + toString(r_number)
-    }
-    else
-    {
-        return l_number
+        l_number += storage;
+        document.querySelector('.display').textContent = `${l_number}`;
     }
 }
 
-function calculator()
-{
-// phase 1: no operands or terminating numbers set up yet. Just initial 'left-side' numbers 
-if (!operand && !r_number)
-    {
-        l_number += storage
-        display()
-    }
-}
 // call calculator function through series of clicks//
 one.addEventListener('click',() => 
 {
-    storage = 1;
-    calculator()
+    storage = '1';
+    display();
 })
 two.addEventListener('click',() => 
 {
-    storage = 2
-    calculator();
+    storage = '2';
+    display();
 })
 three.addEventListener('click',() => 
 {
-    storage = 3
-    calculator();
+    storage = '3';
+    display();
 })
 four.addEventListener('click',() => 
 {
-    storage = 4
-    calculator();
+    storage = '4';
+    display();
 })
 five.addEventListener('click',() => 
 {
-    storage = 5
-    calculator();
+    storage = '5';
+    display();
 })
 six.addEventListener('click',() => 
 {
-    storage = 6
-    calculator();
+    storage = '6';
+    display();
 })
 seven.addEventListener('click',() => 
 {
-    storage = 7
-    calculator();
+    storage = '7';
+    display();
 })
 eight.addEventListener('click',() => 
 {
-    storage = 8
-    calculator();
+    storage = '8';
+    display();
 })
 nine.addEventListener('click',() => 
 {
-    storage = 9
-    calculator();
+    storage = '9';
+    display();
 })
 zero.addEventListener('click',() => 
 {
-    storage = 0
-    calculator();
+    storage = '0';
+    display();
 })
 
 //step 1 -- Show something on the screen. Should default to 0
