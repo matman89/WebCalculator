@@ -116,7 +116,14 @@ divide.addEventListener('click',() =>
     operand = '/';
     display();
 })
-
+clear.addEventListener('click',() => 
+{
+    storage = '';
+    l_number = '';
+    operand = '';
+    r_number = '';
+    document.querySelector('.display').textContent = ``;
+})
 //step 1 -- Show something on the screen. Should default to 0
 //step 2a -- If the user types in an operand, it should prepare to operand to 0
 //step 2b -- if the user types in a number
