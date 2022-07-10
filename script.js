@@ -15,7 +15,7 @@ const divide = document.querySelector('.divide');
 const multiply = document.querySelector('.multiply');
 const plus = document.querySelector('.plus');
 const minus = document.querySelector('.minus');
-const equal = document.querySelector('.equal');
+const equalsign = document.querySelector('.equalsign');
 
 // these variables will initialize as null. Their status will determine which 'phase' we are in
 let storage = '';
@@ -124,6 +124,42 @@ clear.addEventListener('click',() =>
     r_number = '';
     document.querySelector('.display').textContent = ``;
 })
+clear.addEventListener('click',() => 
+{
+    storage = '';
+    l_number = '';
+    operand = '';
+    r_number = '';
+    document.querySelector('.display').textContent = ``;
+})
+equalsign.addEventListener('click',() => 
+{
+    if(operand=='+')
+    {
+        l_number = Number(l_number) + Number(r_number)
+    }
+
+    if(operand=='-')
+    {
+        l_number = Number(l_number) - Number(r_number)
+    }
+
+    if(operand=='/')
+    {
+        l_number = Number(l_number) / Number(r_number)
+    }
+
+    if(operand=='*')
+    {
+        l_number = Number(l_number) * Number(r_number)
+    }
+    l_number.toString()
+    document.querySelector('.display').textContent = `${l_number}`;
+    r_number = ''
+    storage = ''
+    operand = ''
+})
+
 //step 1 -- Show something on the screen. Should default to 0
 //step 2a -- If the user types in an operand, it should prepare to operand to 0
 //step 2b -- if the user types in a number
